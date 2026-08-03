@@ -2,7 +2,7 @@ import React from 'react';
 import { SectionHeading } from './SectionHeading';
 import { GraduationCap, Tv, Cpu, Lightbulb, MapPin, CheckCircle } from 'lucide-react';
 import { siteData } from '../data/site';
-import fidelisAvatar from '../assets/images/fidelis_avatar_1785714025790.jpg';
+import fidelisAvatar from '../assets/images/fidelis_avatar_postimg.jpg';
 
 export const About: React.FC = () => {
   return (
@@ -25,6 +25,9 @@ export const About: React.FC = () => {
                 src={fidelisAvatar}
                 alt="Fidelis Emmanuel Sibe — Software Engineer"
                 referrerPolicy="no-referrer"
+                onError={(e) => {
+                  (e.currentTarget as HTMLImageElement).src = 'https://i.postimg.cc/q0f9bsXk/In-Shot-20260803-010951443.jpg';
+                }}
                 className="w-full h-80 sm:h-96 object-cover object-top rounded transition-all duration-500"
               />
               <div className="absolute bottom-4 left-4 right-4 p-4 rounded bg-[#0A0A0A]/95 backdrop-blur-md border border-[#262626] text-left">
