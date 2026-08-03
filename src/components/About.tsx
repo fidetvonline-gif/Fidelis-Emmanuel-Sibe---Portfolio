@@ -25,7 +25,7 @@ export const About: React.FC = () => {
                 src={fidelisAvatar}
                 alt="Fidelis Emmanuel Sibe — Software Engineer"
                 referrerPolicy="no-referrer"
-                className="w-full h-80 sm:h-96 object-cover rounded filter grayscale group-hover:grayscale-0 transition-all duration-500"
+                className="w-full h-80 sm:h-96 object-cover object-top rounded transition-all duration-500"
               />
               <div className="absolute bottom-4 left-4 right-4 p-4 rounded bg-[#0A0A0A]/95 backdrop-blur-md border border-[#262626] text-left">
                 <div className="font-bold text-white font-sans text-base">{siteData.name}</div>

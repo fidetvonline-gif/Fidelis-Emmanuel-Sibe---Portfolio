@@ -71,7 +71,7 @@ export const ResumeModal: React.FC<ResumeModalProps> = ({ isOpen, onClose }) => 
               </a>
               <span>•</span>
               <a href={siteData.githubUrl} target="_blank" rel="noopener noreferrer" className="hover:text-white">
-                github.com/fidelissibe
+                github.com/fidetvonline-gif
               </a>
             </div>
           </div>

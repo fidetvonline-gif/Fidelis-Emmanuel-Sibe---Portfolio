@@ -51,15 +51,15 @@ export const projectsData: Project[] = [
     number: "01",
     title: "Attendix",
     category: "Biometric Attendance & Intelligent Analytics",
-    shortDescription: "Attendix is a modern attendance management application designed to simplify attendance tracking using biometric authentication and intelligent analytics.",
-    problem: "Traditional paper-based or manual attendance systems in higher educational institutions and organizations can be slow, administrative-heavy, difficult to audit, and vulnerable to proxy attendance.",
+    shortDescription: "Attendix is a modern attendance management application designed to simplify attendance tracking using WebAuthn biometric authentication and intelligent analytics.",
+    problem: "Traditional paper-based or manual attendance systems in higher educational institutions and organizations are slow, administrative-heavy, difficult to audit, and vulnerable to proxy attendance.",
     solution: "Attendix combines modern WebAuthn biometric authentication technology with an intelligent analytics layer powered by Gemini to create a secure, tamper-resistant, and insight-driven attendance tracking system.",
-    technologies: ["React", "Supabase", "PostgreSQL", "WebAuthn / FIDO2", "AI", "Gemini", "Modern Web APIs"],
+    technologies: ["React", "TypeScript", "Supabase", "PostgreSQL", "WebAuthn / FIDO2", "Gemini AI", "Tailwind CSS"],
     recognition: "Winner — Google Build with AI Uyo Challenge",
-    outcome: "Built as a practical biometric attendance and analytics solution designed around real-world educational use cases, winning top recognition at the Google Build with AI Uyo Challenge.",
+    outcome: "Built as a practical biometric attendance and analytics solution designed around real-world educational use cases, winning 1st place at the Google Build with AI Uyo Challenge.",
     image: attendixImg,
-    liveUrl: null, // Official live demo coming soon
-    githubUrl: null, // Repository coming soon
+    liveUrl: "https://attendix-plum.vercel.app",
+    githubUrl: "https://github.com/fidetvonline-gif/Attendix",
     featured: true,
     context: "Designed for university lecture halls, administrative departments, and enterprise workshops needing seamless, verifiable attendance verification.",
     architecture: [
@@ -111,150 +111,366 @@ export const projectsData: Project[] = [
     ]
   },
   {
-    slug: "fide-tv",
+    slug: "fedpoly-ukana-portal",
     number: "02",
-    title: "FIDE TV",
-    category: "Digital Media & Streaming Platform",
-    shortDescription: "FIDE TV is a digital media platform focused on live streaming, digital content, campus stories, news, entertainment, and online media experiences.",
-    problem: "Campus content creators and independent media initiatives lack dedicated digital platforms to stream live campus events, publish student journalism, and engage audiences through unified video and editorial channels.",
-    solution: "Built a robust digital media ecosystem combining high-performance content management, responsive video streaming player integration, and automated story distribution.",
-    technologies: ["React", "Next.js", "WordPress REST API", "Streaming Tech", "Responsive Web Design", "Tailwind CSS"],
-    outcome: "Successfully established a digital media ecosystem for publishing, live streaming, and distributing student journalism, entertainment, and digital content online.",
-    image: fidetvImg,
-    liveUrl: "https://fidetv.online/",
-    githubUrl: null,
-    featured: true,
-    context: "Created as the primary digital footprint for FIDE TV / FideTV Media, connecting student communities across Nigeria with live broadcasts and daily news coverage.",
-    architecture: [
-      { step: 1, label: "Content Creation", description: "Editorial team & live production crew output articles and stream feeds.", iconName: "Video" },
-      { step: 2, label: "Headless CMS Layer", description: "WordPress REST API manages articles, video metadata, and category tags.", iconName: "FileText" },
-      { step: 3, label: "Stream Server", description: "HLS video stream distributor for live broadcasts and video-on-demand.", iconName: "Tv" },
-      { step: 4, label: "Frontend Media App", description: "React / Next.js customized web application optimized for video playback.", iconName: "Layout" },
-      { step: 5, label: "Audience Interface", description: "Responsive mobile-first web app with real-time comments and share hubs.", iconName: "Smartphone" }
-    ],
-    technicalDecisions: [
-      {
-        title: "Headless Content Management Architecture",
-        choice: "WordPress REST API decoupled from custom React frontend",
-        rationale: "Allowed non-technical editorial staff to publish stories easily while enabling full visual design freedom and lightning-fast loading speeds."
-      },
-      {
-        title: "Adaptive Bitrate Video Player",
-        choice: "Customized HTML5 / HLS.js streaming player",
-        rationale: "Guaranteed smooth video playback on mobile devices operating under variable mobile network speeds across campus locations."
-      }
-    ],
-    constraintsAndTradeoffs: [
-      {
-        topic: "Bandwidth & Data Optimization",
-        constraint: "High mobile data costs for student visitors.",
-        tradeoff: "Implemented automated video resolution switching and static image webp compression."
-      }
-    ],
-    lessonsLearned: [
-      "Media platforms require aggressive asset optimization to maintain high engagement on mobile networks.",
-      "Decoupling content editing tools from visual representation yields maximum development velocity."
-    ],
-    metrics: [
-      { label: "Active Domain", value: "fidetv.online" },
-      { label: "Media Portal", value: "Spicy Circle Hub" },
-      { label: "Content Distribution", value: "Live & VOD" }
-    ]
-  },
-  {
-    slug: "global-student-network",
-    number: "03",
-    title: "Global Student Network",
-    category: "Student Community & Advocacy Platform",
-    shortDescription: "A student-focused digital platform designed to give students a stronger voice, improve communication, and connect students with student representation.",
-    problem: "Students frequently encounter campus issues, administrative hurdles, or welfare challenges but lack a secure, transparent, and direct digital channel to communicate with student representatives or advocate anonymously.",
-    solution: "Engineered a privacy-conscious student advocacy platform enabling secure account creation, anonymous concern submission, direct messaging with NANS / student leaders, and community tracking of reported issues.",
-    technologies: ["React", "Next.js", "Supabase", "PostgreSQL", "Authentication", "REST APIs", "Tailwind CSS"],
-    outcome: "A digital communication and advocacy layer designed around student participation, transparent leadership accountability, and accessible student representation.",
-    image: gsnImg,
-    liveUrl: null, // Planned / in active refinement
-    githubUrl: null,
-    featured: true,
-    context: "Conceived to bridge the communication gap between university student bodies and regional/national student leadership bodies like NANS.",
-    architecture: [
-      { step: 1, label: "Student Login / Anonymous", description: "Students sign in via secure auth or opt for cryptographic anonymous posting mode.", iconName: "Shield" },
-      { step: 2, label: "Advocacy Portal", description: "Category selection (Academic, Welfare, Infrastructure, Representation).", iconName: "MessageSquare" },
-      { step: 3, label: "PostgreSQL & RLS", description: "Data stored securely with granular security rules preventing identity disclosure on anonymous threads.", iconName: "Database" },
-      { step: 4, label: "Student Rep Routing", description: "Automated routing to designated campus NANS representatives.", iconName: "Users" },
-      { step: 5, label: "Resolution Tracker", description: "Public status dashboard tracking issue resolution progress.", iconName: "CheckCircle2" }
-    ],
-    technicalDecisions: [
-      {
-        title: "Zero-Knowledge Anonymous Submission",
-        choice: "Cryptographic hash tokens for anonymous threads",
-        rationale: "Ensures students can report sensitive academic grievances without fear of retribution or identity exposure."
-      },
-      {
-        title: "Role-Based Access Control (RBAC)",
-        choice: "Custom Supabase Auth policies for Students vs. Representatives",
-        rationale: "Guarantees official student leadership responses carry verified badges and official verification stamps."
-      }
-    ],
-    constraintsAndTradeoffs: [
-      {
-        topic: "Content Moderation",
-        constraint: "Risk of spam or unverified accusations.",
-        tradeoff: "Integrated automated profanity filters and community upvote/flag thresholds before public indexing."
-      }
-    ],
-    lessonsLearned: [
-      "Trust and privacy design are paramount when building advocacy platforms for marginalized or vulnerable user groups.",
-      "Clear status tracking encourages user participation and reduces repeated ticket submissions."
-    ],
-    metrics: [
-      { label: "Privacy Rating", value: "Anonymity Guaranteed" },
-      { label: "Role Hierarchy", value: "Multi-tier RBAC" },
-      { label: "Target Community", value: "Student Leadership" }
-    ]
-  },
-  {
-    slug: "fedpoly-student-platform",
-    number: "04",
-    title: "FedPoly Ukana Student Platform",
-    category: "Academic & Student Services Platform",
-    shortDescription: "A digital platform concept focused on simplifying student academic and administrative processes at Federal Polytechnic Ukana.",
-    problem: "Polytechnic students often navigate fragmented paper workflows for fee receipts, course registration verification, and official department announcements.",
-    solution: "Designed a centralized academic portal concept unifying course registration, student payment verification displays, administrative notices, and personal student dashboards.",
-    technologies: ["React", "TypeScript", "Node.js", "PostgreSQL", "Authentication", "Responsive UI", "REST APIs"],
-    outcome: "A streamlined digital service architecture proof-of-concept aimed at modernizing administrative interactions for Federal Polytechnic Ukana students.",
+    title: "Federal Polytechnic Ukana Web & Student Portal",
+    category: "Academic & Institutional Portal",
+    shortDescription: "Integrated Web & Portal System for Federal Polytechnic Ukana, featuring dedicated Student, Lecturer, and Administrative portals.",
+    problem: "Polytechnic students and staff navigated fragmented paper workflows for tuition receipts, course registration verification, departmental notices, and result processing.",
+    solution: "Engineered an integrated web portal system unifying course registration, lecturer grading tools, tuition payment verification displays, administrative bulletins, and student profile dashboards.",
+    technologies: ["React", "TypeScript", "Node.js", "PostgreSQL", "Tailwind CSS", "Vercel"],
+    outcome: "Built a production-ready institutional portal platform modernizing academic administration and student service delivery at Federal Polytechnic Ukana.",
     image: fedpolyImg,
-    liveUrl: null,
-    githubUrl: null,
+    liveUrl: "https://federal-polytechnic-ukana-portal.vercel.app",
+    githubUrl: "https://github.com/fidetvonline-gif/Federal-Polytechnic-Ukana-Portal",
     featured: true,
-    context: "Developed as an academic initiative combining Computer Science HND expertise with firsthand polytechnic student service experience.",
+    context: "Developed as an institutional software initiative combining Computer Science HND technical expertise with direct campus experience.",
     architecture: [
-      { step: 1, label: "Student Portal Sign-In", description: "Matriculation number & secure password credential verification.", iconName: "Lock" },
-      { step: 2, label: "Academic Hub", description: "Course selection, semester units calculator, and prerequisite checks.", iconName: "BookOpen" },
-      { step: 3, label: "Payment Verification", description: "Read-only ledger displaying verified tuition and fee receipt records.", iconName: "CreditCard" },
-      { step: 4, label: "Admin Noticeboard", description: "Real-time bulletin for departmental updates and examination timetables.", iconName: "Bell" }
+      { step: 1, label: "Student & Staff Sign-In", description: "Matriculation number and staff ID security verification.", iconName: "Lock" },
+      { step: 2, label: "Academic Hub", description: "Course selection, semester unit calculation, and prerequisite validation.", iconName: "BookOpen" },
+      { step: 3, label: "Lecturer Grading Tools", description: "Secure grade entry portal with automated GPA and CGPA calculations.", iconName: "FileCheck" },
+      { step: 4, label: "Administrative Noticeboard", description: "Real-time bulletin for departmental updates and examination schedules.", iconName: "Bell" }
     ],
     technicalDecisions: [
       {
         title: "Modular Dashboard Component Model",
-        choice: "Re-usable component library for academic widgets",
-        rationale: "Allows quick addition of future modules such as result checking and hostel allocation without rewriting core navigation."
+        choice: "Reusable component architecture for academic modules",
+        rationale: "Allows quick addition of future services such as transcript requests and hostel reservations without breaking core navigation."
+      },
+      {
+        title: "Role-Based Portal Access",
+        choice: "Strict permission guards for Student, Lecturer, and Admin roles",
+        rationale: "Guarantees student records and grade entries are accessible only to verified academic staff."
       }
     ],
     constraintsAndTradeoffs: [
       {
-        topic: "Legacy Systems Integration",
-        constraint: "Existing polytechnic record archives are offline or proprietary.",
-        tradeoff: "Engineered strict REST schema contracts to allow seamless mock data switching to live API endpoints during institutional onboarding."
+        topic: "Legacy Institutional Records",
+        constraint: "Historical polytechnic archives were offline or non-standardized.",
+        tradeoff: "Built strict schema adapters to convert legacy CSV exports into relational database schemas seamlessly."
       }
     ],
     lessonsLearned: [
-      "Academic workflows require strict validation rules to prevent course credit registration errors.",
-      "Designing software for your own institution yields deep empathy for the exact friction points users face daily."
+      "Academic workflows demand strict validation to prevent course credit calculation errors.",
+      "Building software for your own institution yields deep insight into actual user friction points."
     ],
     metrics: [
-      { label: "Target Audience", value: "Polytechnic Students" },
-      { label: "Core Modules", value: "Courses, Fees, Bulletins" },
-      { label: "UI Standard", value: "Accessible & Responsive" }
+      { label: "Target Audience", value: "Students & Faculty" },
+      { label: "Portal Roles", value: "Student, Staff, Admin" },
+      { label: "Platform Status", value: "Live Production" }
+    ]
+  },
+  {
+    slug: "fide-tv-media",
+    number: "03",
+    title: "FideTV Media Hub",
+    category: "Digital Media & Streaming Platform",
+    shortDescription: "FideTV is a premium media hub built for digital storytelling, video streaming, campus news coverage, and creative digital media distribution.",
+    problem: "Independent campus creators and regional media platforms lacked high-performance digital hubs to stream live broadcasts, publish student journalism, and distribute video content efficiently.",
+    solution: "Engineered a digital media ecosystem combining fast content delivery, customized media player components, responsive article readers, and community interaction tools.",
+    technologies: ["React", "TypeScript", "Next.js", "HLS Streaming", "WordPress REST API", "Tailwind CSS"],
+    outcome: "Successfully launched a digital media ecosystem streaming live events, student journalism, and online entertainment to wide digital audiences.",
+    image: fidetvImg,
+    liveUrl: "https://fidetvmedia.vercel.app",
+    githubUrl: "https://github.com/fidetvonline-gif/Fidetvmedia-",
+    featured: true,
+    context: "Serves as the central digital engine for FIDE TV / FideTV Media, connecting youth and campus communities with live video feeds and digital media content.",
+    architecture: [
+      { step: 1, label: "Content Creation", description: "Editorial team & video crews publish news stories and stream feeds.", iconName: "Video" },
+      { step: 2, label: "Media Distribution API", description: "Headless content endpoints manage article metadata and stream links.", iconName: "FileText" },
+      { step: 3, label: "Streaming Player", description: "Custom HTML5 video player optimized for smooth mobile playback.", iconName: "Tv" },
+      { step: 4, label: "Audience Interface", description: "Mobile-first responsive frontend with instant article rendering and video controls.", iconName: "Smartphone" }
+    ],
+    technicalDecisions: [
+      {
+        title: "Headless Content Management",
+        choice: "Decoupled backend API with React frontend",
+        rationale: "Empowers editorial staff to publish news instantly while giving developers total freedom to build responsive, high-performance UI components."
+      },
+      {
+        title: "Adaptive Video Streaming Player",
+        choice: "HLS player with automated network quality adjustment",
+        rationale: "Ensures continuous video playback even on constrained mobile data connections."
+      }
+    ],
+    constraintsAndTradeoffs: [
+      {
+        topic: "Mobile Bandwidth Optimization",
+        constraint: "High data usage costs for mobile visitors.",
+        tradeoff: "Implemented strict image WebP compression and lazy-loading for video player frames."
+      }
+    ],
+    lessonsLearned: [
+      "Media platforms require aggressive asset optimization to sustain engagement on mobile networks.",
+      "Decoupling content management from user interface delivers maximal velocity and user experience."
+    ],
+    metrics: [
+      { label: "Live Domain", value: "fidetvmedia.vercel.app" },
+      { label: "Primary Engine", value: "React & HLS Player" },
+      { label: "Media Focus", value: "Live Stream & Digital News" }
+    ]
+  },
+  {
+    slug: "hireflow-ng",
+    number: "04",
+    title: "HireFlow NG",
+    category: "Digital Recruitment & HR Platform",
+    shortDescription: "A digital recruitment platform modernizing hiring processes across Nigerian institutions with transparent applicant tracking and automated shortlisting.",
+    problem: "Institutional recruitment in Nigeria is frequently burdened by manual physical document submissions, lack of transparency for job applicants, and inefficient candidate screening.",
+    solution: "Built a recruitment platform featuring applicant document uploads, structured application forms, automated resume criteria matching, administrative shortlisting dashboards, and real-time status notifications.",
+    technologies: ["React", "TypeScript", "Node.js", "PostgreSQL", "Tailwind CSS", "Vercel"],
+    outcome: "Streamlined the hiring workflow for educational and administrative institutions, reducing application processing time while improving recruitment transparency.",
+    image: gsnImg,
+    liveUrl: "https://hire-flow-ng.vercel.app",
+    githubUrl: "https://github.com/fidetvonline-gif/HireFlow-NG",
+    featured: true,
+    context: "Designed specifically to solve institutional recruitment bottlenecks across Nigerian schools, polytechnics, and corporate organizations.",
+    architecture: [
+      { step: 1, label: "Applicant Portal", description: "Job seekers create profiles, upload verified credentials, and track applications.", iconName: "UserCheck" },
+      { step: 2, label: "Shortlisting Engine", description: "Automated scoring rules evaluate applicant qualifications against job criteria.", iconName: "Sliders" },
+      { step: 3, label: "HR Admin Dashboard", description: "Recruitment officers review, filter, and export candidate dossiers.", iconName: "Briefcase" },
+      { step: 4, label: "Notification Hub", description: "Automated email notifications keep candidates informed at every hiring stage.", iconName: "Mail" }
+    ],
+    technicalDecisions: [
+      {
+        title: "Automated Qualification Matching",
+        choice: "Rule-based scoring algorithm for applicant credentials",
+        rationale: "Filters out unqualified submissions instantly, saving HR officers hundreds of hours during high-volume recruitment drives."
+      }
+    ],
+    constraintsAndTradeoffs: [
+      {
+        topic: "Document Storage & Verification",
+        constraint: "High file storage requirements for applicant certificates and identity PDFs.",
+        tradeoff: "Integrated cloud storage with automated PDF compression to minimize storage overhead."
+      }
+    ],
+    lessonsLearned: [
+      "Transparent hiring portals build user trust and reduce administrative inquiry phone calls.",
+      "Simple structured forms significantly decrease candidate drop-off during registration."
+    ],
+    metrics: [
+      { label: "Target Sector", value: "Nigerian Institutions" },
+      { label: "Shortlisting", value: "Automated Scoring" },
+      { label: "Status", value: "Live Production" }
+    ]
+  },
+  {
+    slug: "trusted-laptop-store",
+    number: "05",
+    title: "AI-Powered Laptop E-Commerce Store",
+    category: "E-Commerce & AI Recommendation System",
+    shortDescription: "A trusted online laptop store featuring rich catalog filters, side-by-side spec comparison, checkout flow, order tracking, and an interactive AI Laptop Advisor.",
+    problem: "Laptop buyers often struggle to pick the right computer spec for their budget, workload (coding, video editing, gaming), and battery life preferences from complex tech specs.",
+    solution: "Created an online computer store with an integrated AI Laptop Advisor that asks users about their intended use cases and recommends optimal laptops within their budget.",
+    technologies: ["React", "TypeScript", "AI Advisor", "Tailwind CSS", "Vercel"],
+    outcome: "Built an e-commerce platform combining intuitive product filtering, side-by-side specs comparison, and AI decision assistance.",
+    image: attendixImg,
+    liveUrl: "https://a-trusted-online-laptop-store.vercel.app",
+    githubUrl: "https://github.com/fidetvonline-gif/A-trusted-online-laptop-store",
+    featured: false,
+    context: "Developed to demonstrate modern e-commerce UX with intelligent product recommendation engines.",
+    architecture: [
+      { step: 1, label: "Storefront", description: "Product catalog with instant multi-facet filters (RAM, CPU, Price, Brand).", iconName: "ShoppingBag" },
+      { step: 2, label: "Spec Comparison", description: "Side-by-side specification Matrix for comparing multiple laptop models.", iconName: "Columns" },
+      { step: 3, label: "AI Advisor", description: "Interactive questionnaire matching user workloads to ideal laptop specs.", iconName: "Sparkles" },
+      { step: 4, label: "Checkout & Tracking", description: "Cart management, order summary, and real-time order status tracking.", iconName: "Truck" }
+    ],
+    technicalDecisions: [
+      {
+        title: "Client-Side Multi-Filter State",
+        choice: "Optimized React state for zero-latency catalog filtering",
+        rationale: "Provides instantaneous filtering results without reloading the page or waiting for network roundtrips."
+      }
+    ],
+    constraintsAndTradeoffs: [
+      {
+        topic: "Catalog Size & Performance",
+        constraint: "Rendering dozens of high-res device images simultaneously.",
+        tradeoff: "Used lazy loading and responsive image sources to maintain 60fps scrolling."
+      }
+    ],
+    lessonsLearned: [
+      "AI recommendation assistants dramatically improve user confidence during complex purchases.",
+      "Side-by-side comparison tables reduce buyer hesitation."
+    ],
+    metrics: [
+      { label: "Live Store", value: "a-trusted-online-laptop-store.vercel.app" },
+      { label: "Key Feature", value: "AI Laptop Advisor" },
+      { label: "Catalog UX", value: "Instant Multi-Filter" }
+    ]
+  },
+  {
+    slug: "cryptovest-pro",
+    number: "06",
+    title: "CryptoVest Pro Platform",
+    category: "Fintech & Portfolio Tracker",
+    shortDescription: "A crypto platform offering short-term investments, consulting services, and real-time portfolio tracking for digital entrepreneurs.",
+    problem: "Digital investors and crypto traders need clean, straightforward interfaces to view asset trends, investment returns, and advisory services without clutter.",
+    solution: "Engineered CryptoVest Pro with a modern financial dashboard, real-time crypto price tracking, investment tier calculators, and consulting booking workflows.",
+    technologies: ["React", "TypeScript", "Tailwind CSS", "Financial Charts", "Vercel"],
+    outcome: "Delivered a high-performance crypto fintech platform designed for clear financial data visualization and client consulting engagement.",
+    image: fidetvImg,
+    liveUrl: "https://crypto-vest-pro.vercel.app",
+    githubUrl: "https://github.com/fidetvonline-gif/CryptoVest-Pro",
+    featured: false,
+    context: "Created as a fintech product interface demonstrating clean dark-mode financial analytics and portfolio tracking.",
+    architecture: [
+      { step: 1, label: "Dashboard", description: "Real-time portfolio metrics, active asset balances, and gain/loss analytics.", iconName: "TrendingUp" },
+      { step: 2, label: "Investment Tiers", description: "Interactive return calculator evaluating short-term investment plans.", iconName: "DollarSign" },
+      { step: 3, label: "Consulting Hub", description: "Direct advisory booking portal connecting clients with financial consultants.", iconName: "Calendar" }
+    ],
+    technicalDecisions: [
+      {
+        title: "Dark High-Contrast Financial Design",
+        choice: "Monochrome dark palette with accent green chart lines",
+        rationale: "Provides visual clarity for tracking market data and financial charts during extended sessions."
+      }
+    ],
+    constraintsAndTradeoffs: [
+      {
+        topic: "Market Volatility Representation",
+        constraint: "Displaying dynamic ticker updates smoothly.",
+        tradeoff: "Used debounced state updates to prevent UI stutter during frequent price changes."
+      }
+    ],
+    lessonsLearned: [
+      "Fintech interfaces must prioritize data clarity and trust indicators above decorative elements.",
+      "Clear investment tier calculators significantly increase user engagement."
+    ],
+    metrics: [
+      { label: "Platform", value: "crypto-vest-pro.vercel.app" },
+      { label: "UI Archetype", value: "Dark Mode Fintech" },
+      { label: "Status", value: "Live Production" }
+    ]
+  },
+  {
+    slug: "climaterra-nexus",
+    number: "07",
+    title: "Climaterra Nexus Corporate Website",
+    category: "Corporate & Sustainability Website",
+    shortDescription: "Professional corporate website for Climaterra Nexus Ltd, a climate action, environmental consulting, and sustainability company.",
+    problem: "Environmental sustainability companies require elegant web representations to communicate climate initiatives, corporate consulting services, and project impacts effectively.",
+    solution: "Built a sleek corporate web presentation showcasing sustainability services, carbon project portfolios, environmental impact reports, and client consultation channels.",
+    technologies: ["React", "TypeScript", "Tailwind CSS", "GitHub"],
+    outcome: "Established a professional corporate digital footprint for Climaterra Nexus Ltd.",
+    image: gsnImg,
+    liveUrl: null,
+    githubUrl: "https://github.com/fidetvonline-gif/-Climaterra-Nexus-Ltd-",
+    featured: false,
+    context: "Developed as a corporate web presentation for an environmental action company.",
+    architecture: [
+      { step: 1, label: "Corporate Landing", description: "High-impact presentation of sustainability services and company mission.", iconName: "Globe" },
+      { step: 2, label: "Project Portfolio", description: "Interactive grid of climate action projects and ecological impact reports.", iconName: "Leaf" },
+      { step: 3, label: "Consultation Request", description: "Direct inquiry form for corporate sustainability consultations.", iconName: "Mail" }
+    ],
+    technicalDecisions: [
+      {
+        title: "Clean Modern Typography & Color Palette",
+        choice: "High contrast layout with green sustainability accents",
+        rationale: "Reflects eco-friendly company values while maintaining corporate professionalism."
+      }
+    ],
+    constraintsAndTradeoffs: [
+      {
+        topic: "Speed & Accessibility",
+        constraint: "Ensuring top Lighthouse audit scores on slow networks.",
+        tradeoff: "Minimized third-party dependencies to ensure fast global loading speeds."
+      }
+    ],
+    lessonsLearned: [
+      "Corporate web design benefits from clean grid layouts and clear value propositions."
+    ],
+    metrics: [
+      { label: "Company", value: "Climaterra Nexus Ltd" },
+      { label: "Sector", value: "Climate & Sustainability" },
+      { label: "Codebase", value: "TypeScript & React" }
+    ]
+  },
+  {
+    slug: "array-sorting-api",
+    number: "08",
+    title: "PHP Array Manipulation API & Test Console",
+    category: "Backend API & Utility Tool",
+    shortDescription: "A POST API endpoint (array_api.php) for array sorting, filtering, and data transformation with an interactive web test console.",
+    problem: "Developers and students often need simple, reliable API endpoints to test array sorting, filtering algorithms, and payload handling without setting up heavy local servers.",
+    solution: "Created a PHP array manipulation API accompanied by a web test console allowing users to send JSON array payloads and inspect sorted, filtered results live.",
+    technologies: ["PHP", "TypeScript", "REST API", "JSON", "Vercel"],
+    outcome: "Deployed a functional utility API and test harness for real-time array manipulation verification.",
+    image: attendixImg,
+    liveUrl: "https://array-sorting-filtering-api.vercel.app",
+    githubUrl: "https://github.com/fidetvonline-gif/Array-Sorting-Filtering-API",
+    featured: false,
+    context: "Built as a backend API utility showcasing server-side array processing and interactive API testing consoles.",
+    architecture: [
+      { step: 1, label: "Test Console", description: "Web console for specifying JSON array inputs, sorting criteria, and filter keys.", iconName: "Terminal" },
+      { step: 2, label: "PHP API Endpoint", description: "array_api.php processes POST payload, executes sorting algorithms, and sanitizes output.", iconName: "Code" },
+      { step: 3, label: "JSON Response", description: "Returns formatted JSON object with execution time metadata and processed array.", iconName: "Check" }
+    ],
+    technicalDecisions: [
+      {
+        title: "Serverless Deployment for PHP API",
+        choice: "Vercel serverless function runtime for PHP",
+        rationale: "Enables instant global serverless execution without requiring dedicated server infrastructure."
+      }
+    ],
+    constraintsAndTradeoffs: [
+      {
+        topic: "Payload Size & Edge Memory",
+        constraint: "Serverless execution limits on large array datasets.",
+        tradeoff: "Implemented payload size guards to protect against memory overflow during massive array sorting tests."
+      }
+    ],
+    lessonsLearned: [
+      "Interactive test consoles drastically improve developer experience when testing API endpoints."
+    ],
+    metrics: [
+      { label: "Live API", value: "array-sorting-filtering-api.vercel.app" },
+      { label: "Backend Core", value: "PHP array_api.php" },
+      { label: "Interface", value: "Interactive Test Harness" }
+    ]
+  },
+  {
+    slug: "php-session-login",
+    number: "09",
+    title: "PHP Session Login Simulation System",
+    category: "Authentication & Security Tool",
+    shortDescription: "A PHP session login simulation featuring login.php and welcome.php with credential verification, session inspection, and auth guards.",
+    problem: "Understanding stateful HTTP sessions, cookie management, and authentication guards in PHP requires clean, transparent demonstration code.",
+    solution: "Built a complete PHP session authentication simulation with live session inspector tools, cookie decoding, and protected route redirection.",
+    technologies: ["PHP", "Sessions", "Security", "TypeScript", "Vercel"],
+    outcome: "Delivered a web security demonstration tool highlighting native session handling and route authorization.",
+    image: fedpolyImg,
+    liveUrl: "https://php-session-login-simulation-tan.vercel.app",
+    githubUrl: "https://github.com/fidetvonline-gif/PHP-Session-Login-Simulation",
+    featured: false,
+    context: "Developed as a web security project demonstrating core server-side session mechanisms.",
+    architecture: [
+      { step: 1, label: "login.php", description: "Validates incoming post credentials and establishes $_SESSION array state.", iconName: "Key" },
+      { step: 2, label: "welcome.php", description: "Protected route checking active session token before rendering user dashboard.", iconName: "ShieldCheck" },
+      { step: 3, label: "Session Inspector", description: "Live debug console displaying active session variables and cookie lifetimes.", iconName: "Eye" }
+    ],
+    technicalDecisions: [
+      {
+        title: "Native Session Token Management",
+        choice: "Standard PHP session cookies with Secure/HttpOnly flags",
+        rationale: "Demonstrates standard web security practices for session hijacking prevention."
+      }
+    ],
+    constraintsAndTradeoffs: [
+      {
+        topic: "Serverless Session Persistence",
+        constraint: "Serverless environments don't persist disk sessions by default.",
+        tradeoff: "Engineered lightweight encrypted token state to maintain seamless sessions across serverless executions."
+      }
+    ],
+    lessonsLearned: [
+      "Securing session cookies with HttpOnly and SameSite flags is crucial for web app safety."
+    ],
+    metrics: [
+      { label: "Live App", value: "php-session-login-simulation-tan.vercel.app" },
+      { label: "Security Core", value: "login.php & welcome.php" },
+      { label: "Feature", value: "Session State Inspector" }
     ]
   }
 ];

@@ -32,7 +32,7 @@ export const siteData: SiteConfig = {
   secondaryBio: "From student platforms and media products to AI-powered applications and business systems, I turn ideas into functional digital products.",
   location: "Nigeria",
   email: "fidetvonline@gmail.com",
-  githubUrl: "https://github.com/fidelissibe",
+  githubUrl: "https://github.com/fidetvonline-gif",
   linkedinUrl: "https://linkedin.com/in/fidelis-sibe",
   twitterUrl: "https://x.com/fidetvonline",
   education: {
