@@ -85,7 +85,7 @@ Key Projects:
 1. Attendix: Biometric Attendance & Intelligent Analytics (React, Supabase, PostgreSQL, WebAuthn/FIDO2, Gemini AI). WINNER - Google Build with AI Uyo Challenge.
 2. FIDE TV: Digital Media & Streaming Platform (React, Next.js, WordPress REST API, HLS Streaming).
 3. Global Student Network: Student Community & Advocacy Platform (React, Next.js, Supabase, PostgreSQL, Anonymous Reporting).
-4. FedPoly Ukana Student Platform: Academic & Student Services Platform (React, Node.js, PostgreSQL).
+4. Federal Polytechnic Ukana Website: Official Website & Academic Portal System (React, Node.js, PostgreSQL).
 
 Skills:
 - Languages: JavaScript, TypeScript, PHP, HTML, CSS, SQL.

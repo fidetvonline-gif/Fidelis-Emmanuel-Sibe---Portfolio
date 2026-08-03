@@ -44,6 +44,14 @@ import attendixImg from '../assets/images/attendix_mockup_1785714036078.jpg';
 import fidetvImg from '../assets/images/fidetv_mockup_1785714046707.jpg';
 import gsnImg from '../assets/images/gsn_mockup_1785714058460.jpg';
 import fedpolyImg from '../assets/images/fedpoly_mockup_1785714070859.jpg';
+import laptopStoreImg from '../assets/images/laptop_store_mockup_1785720066744.jpg';
+import cryptovestImg from '../assets/images/cryptovest_mockup_1785720080573.jpg';
+import climaterraImg from '../assets/images/climaterra_mockup_1785720095778.jpg';
+import apiConsoleImg from '../assets/images/api_console_mockup_1785720107632.jpg';
+import phpLoginImg from '../assets/images/php_login_mockup_1785720119846.jpg';
+import codextremeIctImg from '../assets/images/codextreme_ict_mockup_1785720132886.jpg';
+import spicycircleImg from '../assets/images/spicycircle_mockup_1785720146222.jpg';
+import codextremeAcademyImg from '../assets/images/codextreme_academy_mockup_1785720160365.jpg';
 
 export const projectsData: Project[] = [
   {
@@ -58,7 +66,7 @@ export const projectsData: Project[] = [
     recognition: "Winner — Google Build with AI Uyo Challenge",
     outcome: "Built as a practical biometric attendance and analytics solution designed around real-world educational use cases, winning 1st place at the Google Build with AI Uyo Challenge.",
     image: attendixImg,
-    liveUrl: "https://attendix-plum.vercel.app",
+    liveUrl: "https://attendix.fidetv.online",
     githubUrl: "https://github.com/fidetvonline-gif/Attendix",
     featured: true,
     context: "Designed for university lecture halls, administrative departments, and enterprise workshops needing seamless, verifiable attendance verification.",
@@ -113,15 +121,15 @@ export const projectsData: Project[] = [
   {
     slug: "fedpoly-ukana-portal",
     number: "02",
-    title: "Federal Polytechnic Ukana Web & Student Portal",
-    category: "Academic & Institutional Portal",
-    shortDescription: "Integrated Web & Portal System for Federal Polytechnic Ukana, featuring dedicated Student, Lecturer, and Administrative portals.",
-    problem: "Polytechnic students and staff navigated fragmented paper workflows for tuition receipts, course registration verification, departmental notices, and result processing.",
-    solution: "Engineered an integrated web portal system unifying course registration, lecturer grading tools, tuition payment verification displays, administrative bulletins, and student profile dashboards.",
+    title: "Federal Polytechnic Ukana Website & Academic Portal",
+    category: "Institutional Website & Academic Portal",
+    shortDescription: "Official Website & Integrated Portal System for Federal Polytechnic Ukana, featuring institutional information, academic programs, and student service portals.",
+    problem: "Polytechnic students, prospective applicants, and staff needed a modern official website and integrated portal for admissions, course registrations, departmental notices, and result processing.",
+    solution: "Engineered an integrated website and portal system unifying institutional information, course registration, lecturer grading tools, tuition payment verification displays, administrative bulletins, and student profile dashboards.",
     technologies: ["React", "TypeScript", "Node.js", "PostgreSQL", "Tailwind CSS", "Vercel"],
-    outcome: "Built a production-ready institutional portal platform modernizing academic administration and student service delivery at Federal Polytechnic Ukana.",
+    outcome: "Built the official website and institutional portal modernizing academic administration and digital presence for Federal Polytechnic Ukana.",
     image: fedpolyImg,
-    liveUrl: "https://federal-polytechnic-ukana-portal.vercel.app",
+    liveUrl: "https://fedpolyukana.edu.ng/",
     githubUrl: "https://github.com/fidetvonline-gif/Federal-Polytechnic-Ukana-Portal",
     featured: true,
     context: "Developed as an institutional software initiative combining Computer Science HND technical expertise with direct campus experience.",
@@ -171,7 +179,7 @@ export const projectsData: Project[] = [
     technologies: ["React", "TypeScript", "Next.js", "HLS Streaming", "WordPress REST API", "Tailwind CSS"],
     outcome: "Successfully launched a digital media ecosystem streaming live events, student journalism, and online entertainment to wide digital audiences.",
     image: fidetvImg,
-    liveUrl: "https://fidetvmedia.vercel.app",
+    liveUrl: "https://fidetv.online",
     githubUrl: "https://github.com/fidetvonline-gif/Fidetvmedia-",
     featured: true,
     context: "Serves as the central digital engine for FIDE TV / FideTV Media, connecting youth and campus communities with live video feeds and digital media content.",
@@ -221,7 +229,7 @@ export const projectsData: Project[] = [
     technologies: ["React", "TypeScript", "Node.js", "PostgreSQL", "Tailwind CSS", "Vercel"],
     outcome: "Streamlined the hiring workflow for educational and administrative institutions, reducing application processing time while improving recruitment transparency.",
     image: gsnImg,
-    liveUrl: "https://hire-flow-ng.vercel.app",
+    liveUrl: "https://erecruitment.fedpolyukana.edu.ng",
     githubUrl: "https://github.com/fidetvonline-gif/HireFlow-NG",
     featured: true,
     context: "Designed specifically to solve institutional recruitment bottlenecks across Nigerian schools, polytechnics, and corporate organizations.",
@@ -265,7 +273,7 @@ export const projectsData: Project[] = [
     solution: "Created an online computer store with an integrated AI Laptop Advisor that asks users about their intended use cases and recommends optimal laptops within their budget.",
     technologies: ["React", "TypeScript", "AI Advisor", "Tailwind CSS", "Vercel"],
     outcome: "Built an e-commerce platform combining intuitive product filtering, side-by-side specs comparison, and AI decision assistance.",
-    image: attendixImg,
+    image: laptopStoreImg,
     liveUrl: "https://a-trusted-online-laptop-store.vercel.app",
     githubUrl: "https://github.com/fidetvonline-gif/A-trusted-online-laptop-store",
     featured: false,
@@ -310,8 +318,8 @@ export const projectsData: Project[] = [
     solution: "Engineered CryptoVest Pro with a modern financial dashboard, real-time crypto price tracking, investment tier calculators, and consulting booking workflows.",
     technologies: ["React", "TypeScript", "Tailwind CSS", "Financial Charts", "Vercel"],
     outcome: "Delivered a high-performance crypto fintech platform designed for clear financial data visualization and client consulting engagement.",
-    image: fidetvImg,
-    liveUrl: "https://crypto-vest-pro.vercel.app",
+    image: cryptovestImg,
+    liveUrl: "https://cryptovestpro.digital",
     githubUrl: "https://github.com/fidetvonline-gif/CryptoVest-Pro",
     featured: false,
     context: "Created as a fintech product interface demonstrating clean dark-mode financial analytics and portfolio tracking.",
@@ -354,7 +362,7 @@ export const projectsData: Project[] = [
     solution: "Built a sleek corporate web presentation showcasing sustainability services, carbon project portfolios, environmental impact reports, and client consultation channels.",
     technologies: ["React", "TypeScript", "Tailwind CSS", "GitHub"],
     outcome: "Established a professional corporate digital footprint for Climaterra Nexus Ltd.",
-    image: gsnImg,
+    image: climaterraImg,
     liveUrl: null,
     githubUrl: "https://github.com/fidetvonline-gif/-Climaterra-Nexus-Ltd-",
     featured: false,
@@ -397,7 +405,7 @@ export const projectsData: Project[] = [
     solution: "Created a PHP array manipulation API accompanied by a web test console allowing users to send JSON array payloads and inspect sorted, filtered results live.",
     technologies: ["PHP", "TypeScript", "REST API", "JSON", "Vercel"],
     outcome: "Deployed a functional utility API and test harness for real-time array manipulation verification.",
-    image: attendixImg,
+    image: apiConsoleImg,
     liveUrl: "https://array-sorting-filtering-api.vercel.app",
     githubUrl: "https://github.com/fidetvonline-gif/Array-Sorting-Filtering-API",
     featured: false,
@@ -440,7 +448,7 @@ export const projectsData: Project[] = [
     solution: "Built a complete PHP session authentication simulation with live session inspector tools, cookie decoding, and protected route redirection.",
     technologies: ["PHP", "Sessions", "Security", "TypeScript", "Vercel"],
     outcome: "Delivered a web security demonstration tool highlighting native session handling and route authorization.",
-    image: fedpolyImg,
+    image: phpLoginImg,
     liveUrl: "https://php-session-login-simulation-tan.vercel.app",
     githubUrl: "https://github.com/fidetvonline-gif/PHP-Session-Login-Simulation",
     featured: false,
@@ -471,6 +479,102 @@ export const projectsData: Project[] = [
       { label: "Live App", value: "php-session-login-simulation-tan.vercel.app" },
       { label: "Security Core", value: "login.php & welcome.php" },
       { label: "Feature", value: "Session State Inspector" }
+    ]
+  },
+  {
+    slug: "codextreme-ict",
+    number: "10",
+    title: "CodeXtreme ICT Platform",
+    category: "EdTech & Tech Training Platform",
+    shortDescription: "Interactive ICT academy platform providing software development courses, digital skills training, and student project showcases.",
+    problem: "Tech students and aspiring developers in Nigeria need accessible, structured learning paths and practical project guidance.",
+    solution: "Built CodeXtreme ICT platform featuring course modules, code exercise labs, mentorship registration, and developer community links.",
+    technologies: ["React", "TypeScript", "Tailwind CSS", "Vercel"],
+    outcome: "Empowering developers through structured tech training curriculum and project building.",
+    image: codextremeIctImg,
+    liveUrl: "https://codextremeict.vercel.app",
+    githubUrl: "https://github.com/fidetvonline-gif/codextreme-x4ul",
+    featured: false,
+    context: "Tech training initiative designed for empowering students with practical coding skills.",
+    architecture: [
+      { step: 1, label: "Course Portal", description: "Curriculum roadmap covering Web Dev, React, and Backend APIs.", iconName: "BookOpen" },
+      { step: 2, label: "Student Hub", description: "Project assignment submission and mentorship connect.", iconName: "Users" }
+    ],
+    technicalDecisions: [
+      {
+        title: "Modular Curriculum Navigation",
+        choice: "Interactive progress tracker built with React state",
+        rationale: "Ensures students track learning milestones visually."
+      }
+    ],
+    constraintsAndTradeoffs: [],
+    lessonsLearned: ["Interactive course structures increase student retention."],
+    metrics: [
+      { label: "Live Site", value: "codextremeict.vercel.app" }
+    ]
+  },
+  {
+    slug: "spicycircle",
+    number: "11",
+    title: "SpicyCircle Campus Social Network",
+    category: "Social Platform & Community Engine",
+    shortDescription: "A student-centric social networking platform connecting campus communities, event updates, student groups, and digital interactions.",
+    problem: "Campus students needed an engaging online community space dedicated to campus news, discussions, and student networking.",
+    solution: "Engineered SpicyCircle with real-time post feeds, discussion circles, campus event boards, and student profile badges.",
+    technologies: ["React", "TypeScript", "Next.js", "Tailwind CSS"],
+    outcome: "Created a vibrant campus community hub under the FIDE TV digital ecosystem.",
+    image: spicycircleImg,
+    liveUrl: "https://spicycircle.fidetv.online",
+    githubUrl: "https://github.com/fidetvonline-gif/spicycircle",
+    featured: false,
+    context: "Built under FIDE TV Media ecosystem to connect campus youth.",
+    architecture: [
+      { step: 1, label: "Feed Engine", description: "Real-time post feed with multi-media attachments and comments.", iconName: "MessageSquare" },
+      { step: 2, label: "Community Circles", description: "Topic-based student forums and interest groups.", iconName: "Users" }
+    ],
+    technicalDecisions: [
+      {
+        title: "High-Performance Feed Rendering",
+        choice: "Virtualized feed component list",
+        rationale: "Handles fast scrolling through image and text posts on mobile devices."
+      }
+    ],
+    constraintsAndTradeoffs: [],
+    lessonsLearned: ["Community platforms rely heavily on fast feed load speeds."],
+    metrics: [
+      { label: "Live Domain", value: "spicycircle.fidetv.online" }
+    ]
+  },
+  {
+    slug: "codextreme-academy",
+    number: "12",
+    title: "CodeXtreme Tech Academy",
+    category: "Developer Training & Tech Academy",
+    shortDescription: "Digital portal for CodeXtreme Tech Academy offering intensive coding bootcamps, practical coding tracks, and student portfolios.",
+    problem: "Practical coding bootcamps require modern web hubs to present course catalogs, mentor profiles, and enrollment workflows.",
+    solution: "Designed and built CodeXtreme Tech Academy portal showcasing intensive bootcamps, student achievements, and application forms.",
+    technologies: ["React", "TypeScript", "Tailwind CSS", "Vercel"],
+    outcome: "Successfully launched the digital portal for CodeXtreme Tech Academy.",
+    image: codextremeAcademyImg,
+    liveUrl: "https://codextreme-zeta.vercel.app",
+    githubUrl: "https://github.com/fidetvonline-gif/codextreme",
+    featured: false,
+    context: "Tech training platform for developer bootcamps.",
+    architecture: [
+      { step: 1, label: "Bootcamp Catalog", description: "Interactive breakdown of Web Development, Mobile Dev, and AI tracks.", iconName: "GraduationCap" },
+      { step: 2, label: "Enrollment Form", description: "Direct application workflow for prospective tech students.", iconName: "FileText" }
+    ],
+    technicalDecisions: [
+      {
+        title: "Responsive Tech Catalog",
+        choice: "Mobile-first grid layout with Tailwind CSS",
+        rationale: "Ensures seamless browsing for mobile users looking for tech courses."
+      }
+    ],
+    constraintsAndTradeoffs: [],
+    lessonsLearned: ["Clear course prerequisites help students choose the right learning path."],
+    metrics: [
+      { label: "Live Site", value: "codextreme-zeta.vercel.app" }
     ]
   }
 ];
