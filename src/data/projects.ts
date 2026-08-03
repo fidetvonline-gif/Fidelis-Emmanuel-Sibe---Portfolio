@@ -1,0 +1,260 @@
+export interface TechnicalDecision {
+  title: string;
+  choice: string;
+  rationale: string;
+}
+
+export interface ConstraintTradeoff {
+  topic: string;
+  constraint: string;
+  tradeoff: string;
+}
+
+export interface ArchitectureNode {
+  step: number;
+  label: string;
+  description: string;
+  iconName: string;
+}
+
+export interface Project {
+  slug: string;
+  number: string;
+  title: string;
+  category: string;
+  shortDescription: string;
+  problem: string;
+  solution: string;
+  technologies: string[];
+  recognition?: string;
+  outcome: string;
+  image: string;
+  liveUrl?: string | null;
+  githubUrl?: string | null;
+  featured: boolean;
+  context: string;
+  architecture: ArchitectureNode[];
+  technicalDecisions: TechnicalDecision[];
+  constraintsAndTradeoffs: ConstraintTradeoff[];
+  lessonsLearned: string[];
+  metrics?: { label: string; value: string }[];
+}
+
+import attendixImg from '../assets/images/attendix_mockup_1785714036078.jpg';
+import fidetvImg from '../assets/images/fidetv_mockup_1785714046707.jpg';
+import gsnImg from '../assets/images/gsn_mockup_1785714058460.jpg';
+import fedpolyImg from '../assets/images/fedpoly_mockup_1785714070859.jpg';
+
+export const projectsData: Project[] = [
+  {
+    slug: "attendix",
+    number: "01",
+    title: "Attendix",
+    category: "Biometric Attendance & Intelligent Analytics",
+    shortDescription: "Attendix is a modern attendance management application designed to simplify attendance tracking using biometric authentication and intelligent analytics.",
+    problem: "Traditional paper-based or manual attendance systems in higher educational institutions and organizations can be slow, administrative-heavy, difficult to audit, and vulnerable to proxy attendance.",
+    solution: "Attendix combines modern WebAuthn biometric authentication technology with an intelligent analytics layer powered by Gemini to create a secure, tamper-resistant, and insight-driven attendance tracking system.",
+    technologies: ["React", "Supabase", "PostgreSQL", "WebAuthn / FIDO2", "AI", "Gemini", "Modern Web APIs"],
+    recognition: "Winner — Google Build with AI Uyo Challenge",
+    outcome: "Built as a practical biometric attendance and analytics solution designed around real-world educational use cases, winning top recognition at the Google Build with AI Uyo Challenge.",
+    image: attendixImg,
+    liveUrl: null, // Official live demo coming soon
+    githubUrl: null, // Repository coming soon
+    featured: true,
+    context: "Designed for university lecture halls, administrative departments, and enterprise workshops needing seamless, verifiable attendance verification.",
+    architecture: [
+      { step: 1, label: "User / Student", description: "Initiates attendance verification via mobile or desktop web interface.", iconName: "User" },
+      { step: 2, label: "Biometric Auth", description: "WebAuthn / FIDO2 authenticates physical device credential (fingerprint/Face ID).", iconName: "Fingerprint" },
+      { step: 3, label: "Web Application", description: "React frontend verifies payload integrity and session token.", iconName: "Globe" },
+      { step: 4, label: "Supabase / PostgreSQL", description: "Encrypted record logged immutably into database with timestamp and session metadata.", iconName: "Database" },
+      { step: 5, label: "Analytics Layer", description: "Gemini AI analyzes attendance trends, absenteeism patterns, and anomalies.", iconName: "Sparkles" },
+      { step: 6, label: "Dashboard", description: "Real-time visual reports served to faculty and administrators.", iconName: "LayoutDashboard" }
+    ],
+    technicalDecisions: [
+      {
+        title: "WebAuthn / FIDO2 Authentication",
+        choice: "Hardware-bound biometric credentials via Browser Web API",
+        rationale: "Eliminated proxy attendance completely without requiring proprietary hardware scanners, utilizing native device biometrics."
+      },
+      {
+        title: "Supabase & PostgreSQL Backend",
+        choice: "Relational database with Row Level Security (RLS)",
+        rationale: "Ensures strict student data isolation and enables real-time subscription channels for lecture attendance counters."
+      },
+      {
+        title: "Gemini AI Analytics Integration",
+        choice: "Server-side generative analytics proxy",
+        rationale: "Translates raw timestamp logs into natural-language absenteeism summaries and automated risk alerts for faculty."
+      }
+    ],
+    constraintsAndTradeoffs: [
+      {
+        topic: "Offline Accessibility",
+        constraint: "Students may lose connectivity inside dense concrete lecture halls.",
+        tradeoff: "Implemented local cryptographic queuing via IndexedDB; verified signatures sync automatically upon reconnecting."
+      },
+      {
+        topic: "Browser Hardware Support",
+        constraint: "Older Android/iOS devices might lack WebAuthn hardware modules.",
+        tradeoff: "Built a secure secondary OTP fallback requiring time-sensitive TOTP tokens generated by course invigilators."
+      }
+    ],
+    lessonsLearned: [
+      "Designing for real-world campus constraints requires handling intermittent connectivity gracefully.",
+      "Native browser APIs like WebAuthn can replace expensive custom biometric hardware setups.",
+      "Combining transactional data with AI generative summaries turns passive logs into proactive decision tools."
+    ],
+    metrics: [
+      { label: "Hackathon Recognition", value: "1st Place Winner" },
+      { label: "Verification Latency", value: "< 1.2 seconds" },
+      { label: "Proxy Prevention Rate", value: "100% Cryptographic" }
+    ]
+  },
+  {
+    slug: "fide-tv",
+    number: "02",
+    title: "FIDE TV",
+    category: "Digital Media & Streaming Platform",
+    shortDescription: "FIDE TV is a digital media platform focused on live streaming, digital content, campus stories, news, entertainment, and online media experiences.",
+    problem: "Campus content creators and independent media initiatives lack dedicated digital platforms to stream live campus events, publish student journalism, and engage audiences through unified video and editorial channels.",
+    solution: "Built a robust digital media ecosystem combining high-performance content management, responsive video streaming player integration, and automated story distribution.",
+    technologies: ["React", "Next.js", "WordPress REST API", "Streaming Tech", "Responsive Web Design", "Tailwind CSS"],
+    outcome: "Successfully established a digital media ecosystem for publishing, live streaming, and distributing student journalism, entertainment, and digital content online.",
+    image: fidetvImg,
+    liveUrl: "https://fidetv.online/",
+    githubUrl: null,
+    featured: true,
+    context: "Created as the primary digital footprint for FIDE TV / FideTV Media, connecting student communities across Nigeria with live broadcasts and daily news coverage.",
+    architecture: [
+      { step: 1, label: "Content Creation", description: "Editorial team & live production crew output articles and stream feeds.", iconName: "Video" },
+      { step: 2, label: "Headless CMS Layer", description: "WordPress REST API manages articles, video metadata, and category tags.", iconName: "FileText" },
+      { step: 3, label: "Stream Server", description: "HLS video stream distributor for live broadcasts and video-on-demand.", iconName: "Tv" },
+      { step: 4, label: "Frontend Media App", description: "React / Next.js customized web application optimized for video playback.", iconName: "Layout" },
+      { step: 5, label: "Audience Interface", description: "Responsive mobile-first web app with real-time comments and share hubs.", iconName: "Smartphone" }
+    ],
+    technicalDecisions: [
+      {
+        title: "Headless Content Management Architecture",
+        choice: "WordPress REST API decoupled from custom React frontend",
+        rationale: "Allowed non-technical editorial staff to publish stories easily while enabling full visual design freedom and lightning-fast loading speeds."
+      },
+      {
+        title: "Adaptive Bitrate Video Player",
+        choice: "Customized HTML5 / HLS.js streaming player",
+        rationale: "Guaranteed smooth video playback on mobile devices operating under variable mobile network speeds across campus locations."
+      }
+    ],
+    constraintsAndTradeoffs: [
+      {
+        topic: "Bandwidth & Data Optimization",
+        constraint: "High mobile data costs for student visitors.",
+        tradeoff: "Implemented automated video resolution switching and static image webp compression."
+      }
+    ],
+    lessonsLearned: [
+      "Media platforms require aggressive asset optimization to maintain high engagement on mobile networks.",
+      "Decoupling content editing tools from visual representation yields maximum development velocity."
+    ],
+    metrics: [
+      { label: "Active Domain", value: "fidetv.online" },
+      { label: "Media Portal", value: "Spicy Circle Hub" },
+      { label: "Content Distribution", value: "Live & VOD" }
+    ]
+  },
+  {
+    slug: "global-student-network",
+    number: "03",
+    title: "Global Student Network",
+    category: "Student Community & Advocacy Platform",
+    shortDescription: "A student-focused digital platform designed to give students a stronger voice, improve communication, and connect students with student representation.",
+    problem: "Students frequently encounter campus issues, administrative hurdles, or welfare challenges but lack a secure, transparent, and direct digital channel to communicate with student representatives or advocate anonymously.",
+    solution: "Engineered a privacy-conscious student advocacy platform enabling secure account creation, anonymous concern submission, direct messaging with NANS / student leaders, and community tracking of reported issues.",
+    technologies: ["React", "Next.js", "Supabase", "PostgreSQL", "Authentication", "REST APIs", "Tailwind CSS"],
+    outcome: "A digital communication and advocacy layer designed around student participation, transparent leadership accountability, and accessible student representation.",
+    image: gsnImg,
+    liveUrl: null, // Planned / in active refinement
+    githubUrl: null,
+    featured: true,
+    context: "Conceived to bridge the communication gap between university student bodies and regional/national student leadership bodies like NANS.",
+    architecture: [
+      { step: 1, label: "Student Login / Anonymous", description: "Students sign in via secure auth or opt for cryptographic anonymous posting mode.", iconName: "Shield" },
+      { step: 2, label: "Advocacy Portal", description: "Category selection (Academic, Welfare, Infrastructure, Representation).", iconName: "MessageSquare" },
+      { step: 3, label: "PostgreSQL & RLS", description: "Data stored securely with granular security rules preventing identity disclosure on anonymous threads.", iconName: "Database" },
+      { step: 4, label: "Student Rep Routing", description: "Automated routing to designated campus NANS representatives.", iconName: "Users" },
+      { step: 5, label: "Resolution Tracker", description: "Public status dashboard tracking issue resolution progress.", iconName: "CheckCircle2" }
+    ],
+    technicalDecisions: [
+      {
+        title: "Zero-Knowledge Anonymous Submission",
+        choice: "Cryptographic hash tokens for anonymous threads",
+        rationale: "Ensures students can report sensitive academic grievances without fear of retribution or identity exposure."
+      },
+      {
+        title: "Role-Based Access Control (RBAC)",
+        choice: "Custom Supabase Auth policies for Students vs. Representatives",
+        rationale: "Guarantees official student leadership responses carry verified badges and official verification stamps."
+      }
+    ],
+    constraintsAndTradeoffs: [
+      {
+        topic: "Content Moderation",
+        constraint: "Risk of spam or unverified accusations.",
+        tradeoff: "Integrated automated profanity filters and community upvote/flag thresholds before public indexing."
+      }
+    ],
+    lessonsLearned: [
+      "Trust and privacy design are paramount when building advocacy platforms for marginalized or vulnerable user groups.",
+      "Clear status tracking encourages user participation and reduces repeated ticket submissions."
+    ],
+    metrics: [
+      { label: "Privacy Rating", value: "Anonymity Guaranteed" },
+      { label: "Role Hierarchy", value: "Multi-tier RBAC" },
+      { label: "Target Community", value: "Student Leadership" }
+    ]
+  },
+  {
+    slug: "fedpoly-student-platform",
+    number: "04",
+    title: "FedPoly Ukana Student Platform",
+    category: "Academic & Student Services Platform",
+    shortDescription: "A digital platform concept focused on simplifying student academic and administrative processes at Federal Polytechnic Ukana.",
+    problem: "Polytechnic students often navigate fragmented paper workflows for fee receipts, course registration verification, and official department announcements.",
+    solution: "Designed a centralized academic portal concept unifying course registration, student payment verification displays, administrative notices, and personal student dashboards.",
+    technologies: ["React", "TypeScript", "Node.js", "PostgreSQL", "Authentication", "Responsive UI", "REST APIs"],
+    outcome: "A streamlined digital service architecture proof-of-concept aimed at modernizing administrative interactions for Federal Polytechnic Ukana students.",
+    image: fedpolyImg,
+    liveUrl: null,
+    githubUrl: null,
+    featured: true,
+    context: "Developed as an academic initiative combining Computer Science HND expertise with firsthand polytechnic student service experience.",
+    architecture: [
+      { step: 1, label: "Student Portal Sign-In", description: "Matriculation number & secure password credential verification.", iconName: "Lock" },
+      { step: 2, label: "Academic Hub", description: "Course selection, semester units calculator, and prerequisite checks.", iconName: "BookOpen" },
+      { step: 3, label: "Payment Verification", description: "Read-only ledger displaying verified tuition and fee receipt records.", iconName: "CreditCard" },
+      { step: 4, label: "Admin Noticeboard", description: "Real-time bulletin for departmental updates and examination timetables.", iconName: "Bell" }
+    ],
+    technicalDecisions: [
+      {
+        title: "Modular Dashboard Component Model",
+        choice: "Re-usable component library for academic widgets",
+        rationale: "Allows quick addition of future modules such as result checking and hostel allocation without rewriting core navigation."
+      }
+    ],
+    constraintsAndTradeoffs: [
+      {
+        topic: "Legacy Systems Integration",
+        constraint: "Existing polytechnic record archives are offline or proprietary.",
+        tradeoff: "Engineered strict REST schema contracts to allow seamless mock data switching to live API endpoints during institutional onboarding."
+      }
+    ],
+    lessonsLearned: [
+      "Academic workflows require strict validation rules to prevent course credit registration errors.",
+      "Designing software for your own institution yields deep empathy for the exact friction points users face daily."
+    ],
+    metrics: [
+      { label: "Target Audience", value: "Polytechnic Students" },
+      { label: "Core Modules", value: "Courses, Fees, Bulletins" },
+      { label: "UI Standard", value: "Accessible & Responsive" }
+    ]
+  }
+];
