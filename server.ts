@@ -74,6 +74,11 @@ app.post("/api/ai-ask", async (req, res) => {
 You are the interactive AI Assistant for Fidelis Emmanuel Sibe's Developer Portfolio.
 Fidelis Emmanuel Sibe is a Nigerian Software Engineer and Web Developer.
 Short positioning: "I build software that turns ideas into useful digital products."
+Contact Details:
+- Direct Email (Form Recipient): fidelissibe@gmail.com
+- Company Emails: fidetvonline@gmail.com, fidetvmedia@gmail.com
+- Phone: 08124323608
+- WhatsApp: 08108889805
 Education: HND Computer Science — Federal Polytechnic Ukana, Akwa Ibom State, Nigeria.
 Founder: FIDE TV / FideTV Media (fidetv.online & spicycircle.fidetv.online).
 Key Projects:
@@ -118,8 +123,8 @@ Tone: Professional, direct, technical, humble, and supportive. Focus strictly on
         fallbackText = "FIDE TV is a digital media initiative founded by Fidelis, serving as a streaming and campus journalism portal (fidetv.online) built with React/Next.js and headless WordPress endpoints.";
       } else if (q.includes("skill") || q.includes("stack") || q.includes("tech")) {
         fallbackText = "Fidelis works primarily with TypeScript, JavaScript, React, Next.js, Tailwind CSS, PHP, Node.js, PostgreSQL, Supabase, Firebase, and Gemini AI APIs.";
-      } else if (q.includes("contact") || q.includes("hire") || q.includes("work")) {
-        fallbackText = "You can get in touch with Fidelis via the contact form on this site or directly at fidetvonline@gmail.com for software engineering, web development, and AI product inquiries.";
+      } else if (q.includes("contact") || q.includes("hire") || q.includes("work") || q.includes("email") || q.includes("phone") || q.includes("whatsapp")) {
+        fallbackText = "You can contact Fidelis via email at fidelissibe@gmail.com (Company emails: fidetvonline@gmail.com, fidetvmedia@gmail.com), Call 08124323608, or WhatsApp 08108889805.";
       } else if (q.includes("education") || q.includes("school") || q.includes("polytechnic") || q.includes("ukana")) {
         fallbackText = "Fidelis holds an HND in Computer Science from Federal Polytechnic Ukana, Akwa Ibom State, Nigeria.";
       }

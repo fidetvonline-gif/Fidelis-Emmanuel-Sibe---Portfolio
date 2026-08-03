@@ -60,7 +60,7 @@ export const ResumeModal: React.FC<ResumeModalProps> = ({ isOpen, onClose }) => 
               {siteData.title}
             </p>
 
-            <div className="flex flex-wrap items-center gap-4 text-xs font-mono text-[#888] pt-1">
+            <div className="flex flex-wrap items-center gap-3 sm:gap-4 text-xs font-mono text-[#888] pt-1">
               <span className="flex items-center gap-1">
                 <MapPin className="w-3.5 h-3.5 text-[#666]" />
                 {siteData.location}
@@ -68,6 +68,14 @@ export const ResumeModal: React.FC<ResumeModalProps> = ({ isOpen, onClose }) => 
               <span>•</span>
               <a href={`mailto:${siteData.email}`} className="text-[#BEF264] hover:underline">
                 {siteData.email}
+              </a>
+              <span>•</span>
+              <a href="tel:08124323608" className="hover:text-white">
+                Call: 08124323608
+              </a>
+              <span>•</span>
+              <a href="https://wa.me/2348108889805" target="_blank" rel="noopener noreferrer" className="text-[#BEF264] hover:underline font-bold">
+                WhatsApp: 08108889805
               </a>
               <span>•</span>
               <a href={siteData.githubUrl} target="_blank" rel="noopener noreferrer" className="hover:text-white">

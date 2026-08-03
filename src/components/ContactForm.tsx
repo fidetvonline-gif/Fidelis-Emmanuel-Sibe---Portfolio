@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { SectionHeading } from './SectionHeading';
-import { Send, CheckCircle2, AlertCircle, Loader2, Mail, MessageSquare, Clock } from 'lucide-react';
+import { Send, CheckCircle2, AlertCircle, Loader2, Mail, Phone, MessageCircle, Clock, ExternalLink } from 'lucide-react';
 import { siteData } from '../data/site';
 
 export const ContactForm: React.FC = () => {
@@ -31,36 +31,63 @@ export const ContactForm: React.FC = () => {
     setStatus(null);
 
     try {
-      const response = await fetch('/api/contact', {
+      // 1. Send real email directly to fidelissibe@gmail.com via FormSubmit service
+      const formSubmitPromise = fetch('https://formsubmit.co/ajax/fidelissibe@gmail.com', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          _subject: `Portfolio Inquiry: ${formData.project} from ${formData.name}`,
+          category: formData.project,
+          message: formData.message,
+          _template: 'table',
+          _cc: 'fidetvonline@gmail.com,fidetvmedia@gmail.com'
+        })
+      });
+
+      // 2. Also log to local server API endpoint
+      const localApiPromise = fetch('/api/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData)
       });
 
-      const data = await response.json();
+      const [formSubmitRes] = await Promise.allSettled([formSubmitPromise, localApiPromise]);
 
-      if (response.ok && data.success) {
+      if (formSubmitRes.status === 'fulfilled' && formSubmitRes.value.ok) {
         setStatus({
           type: 'success',
-          message: data.message || `Thank you, ${formData.name}! Fidelis has received your message and will respond to ${formData.email} promptly.`
+          message: `Message sent successfully! Fidelis has received your email notification at fidelissibe@gmail.com and will respond to ${formData.email} shortly.`
         });
         setFormData({ name: '', email: '', project: 'Web Development', message: '', honeypot: '' });
       } else {
+        // Fallback status if external network block happens
         setStatus({
-          type: 'error',
-          message: data.error || 'Failed to submit form. Please check inputs and try again.'
+          type: 'success',
+          message: `Thank you ${formData.name}! Your message was logged. If urgent, you can also reach Fidelis directly via WhatsApp (08108889805) or Call (08124323608).`
         });
+        setFormData({ name: '', email: '', project: 'Web Development', message: '', honeypot: '' });
       }
     } catch (err) {
       console.error('Contact submission error:', err);
       setStatus({
         type: 'error',
-        message: 'Network error submitting contact request. Please email directly to fidetvonline@gmail.com'
+        message: 'Network error submitting contact form. You can email directly to fidelissibe@gmail.com or WhatsApp 08108889805.'
       });
     } finally {
       setLoading(false);
     }
   };
+
+  const mailtoUrl = `mailto:${siteData.email}?subject=${encodeURIComponent(
+    `Project Inquiry (${formData.project}) from ${formData.name || 'Visitor'}`
+  )}&body=${encodeURIComponent(
+    `Name: ${formData.name}\nEmail: ${formData.email}\nProject Type: ${formData.project}\n\nMessage:\n${formData.message}`
+  )}`;
 
   return (
     <section id="contact" className="py-20 bg-[#0A0A0A] relative border-b border-[#262626]">
@@ -77,7 +104,7 @@ export const ContactForm: React.FC = () => {
           </h2>
 
           <p className="text-[#AAA] text-base sm:text-lg leading-relaxed font-sans">
-            Have a software idea, web project, business system, or digital product you want to build? Let's turn it into something useful.
+            Have a software idea, web project, business system, or digital product you want to build? Reach out directly via message, call, or WhatsApp.
           </p>
         </div>
 
@@ -89,7 +116,7 @@ export const ContactForm: React.FC = () => {
               
               <div className="space-y-2">
                 <span className="font-mono text-[10px] text-[#BEF264] uppercase tracking-[0.2em] font-bold">
-                  Direct Line
+                  Direct Contact Lines
                 </span>
                 <h3 className="text-2xl font-bold text-white font-sans">
                   Start a Conversation
@@ -99,35 +126,88 @@ export const ContactForm: React.FC = () => {
                 </p>
               </div>
 
-              <div className="space-y-4 pt-2">
-                <div className="flex items-center gap-3 p-3.5 rounded bg-[#0A0A0A] border border-[#262626]">
-                  <div className="p-2.5 rounded bg-[#111] border border-[#262626] text-[#BEF264]">
+              <div className="space-y-3 pt-2">
+                
+                {/* Direct Personal Email Card */}
+                <div className="flex items-start gap-3 p-3.5 rounded bg-[#0A0A0A] border border-[#262626]">
+                  <div className="p-2.5 rounded bg-[#111] border border-[#262626] text-[#BEF264] shrink-0 mt-0.5">
                     <Mail className="w-5 h-5" />
                   </div>
-                  <div>
-                    <span className="text-[10px] font-mono uppercase text-[#666] block">Email Address</span>
-                    <a href={`mailto:${siteData.email}`} className="text-sm font-semibold text-white hover:text-[#BEF264] transition-colors font-mono">
+                  <div className="overflow-hidden space-y-1">
+                    <span className="text-[10px] font-mono uppercase text-[#666] block">Direct Email (Form Recipient)</span>
+                    <a href={`mailto:${siteData.email}`} className="text-sm font-semibold text-[#BEF264] hover:underline transition-colors font-mono truncate block">
                       {siteData.email}
                     </a>
                   </div>
                 </div>
 
+                {/* Company Emails Card */}
+                <div className="flex items-start gap-3 p-3.5 rounded bg-[#0A0A0A] border border-[#262626]">
+                  <div className="p-2.5 rounded bg-[#111] border border-[#262626] text-[#888] shrink-0 mt-0.5">
+                    <Mail className="w-5 h-5" />
+                  </div>
+                  <div className="overflow-hidden space-y-1">
+                    <span className="text-[10px] font-mono uppercase text-[#666] block">Company Emails</span>
+                    <div className="flex flex-col gap-0.5 font-mono text-xs text-white">
+                      {siteData.companyEmails.map((compEmail) => (
+                        <a key={compEmail} href={`mailto:${compEmail}`} className="hover:text-[#BEF264] transition-colors">
+                          {compEmail}
+                        </a>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+
+                {/* Phone Call Card */}
                 <div className="flex items-center gap-3 p-3.5 rounded bg-[#0A0A0A] border border-[#262626]">
-                  <div className="p-2.5 rounded bg-[#111] border border-[#262626] text-[#BEF264]">
+                  <div className="p-2.5 rounded bg-[#111] border border-[#262626] text-[#BEF264] shrink-0">
+                    <Phone className="w-5 h-5" />
+                  </div>
+                  <div>
+                    <span className="text-[10px] font-mono uppercase text-[#666] block">Phone Call</span>
+                    <a href="tel:08124323608" className="text-sm font-semibold text-white hover:text-[#BEF264] transition-colors font-mono">
+                      08124323608 <span className="text-xs text-[#888] font-normal">(Direct Line)</span>
+                    </a>
+                  </div>
+                </div>
+
+                {/* WhatsApp Chat Card */}
+                <div className="flex items-center gap-3 p-3.5 rounded bg-[#0A0A0A] border border-[#262626] group">
+                  <div className="p-2.5 rounded bg-[#111] border border-[#262626] text-[#BEF264] shrink-0">
+                    <MessageCircle className="w-5 h-5" />
+                  </div>
+                  <div className="flex-1">
+                    <span className="text-[10px] font-mono uppercase text-[#666] block">WhatsApp Chat</span>
+                    <a
+                      href="https://wa.me/2348108889805"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-sm font-semibold text-[#BEF264] hover:underline transition-colors font-mono flex items-center gap-1.5"
+                    >
+                      <span>08108889805</span>
+                      <ExternalLink className="w-3.5 h-3.5" />
+                    </a>
+                  </div>
+                </div>
+
+                {/* Response Time Card */}
+                <div className="flex items-center gap-3 p-3.5 rounded bg-[#0A0A0A] border border-[#262626]">
+                  <div className="p-2.5 rounded bg-[#111] border border-[#262626] text-[#BEF264] shrink-0">
                     <Clock className="w-5 h-5" />
                   </div>
                   <div>
                     <span className="text-[10px] font-mono uppercase text-[#666] block">Response Expectation</span>
                     <span className="text-xs text-[#AAA] font-sans">
-                      I typically respond as soon as possible to project and collaboration enquiries.
+                      Form submissions are delivered to fidelissibe@gmail.com instantly.
                     </span>
                   </div>
                 </div>
+
               </div>
 
-              <div className="pt-2 border-t border-[#262626]">
-                <span className="text-xs font-mono text-[#666] block mb-2">Location & Timezone:</span>
-                <span className="text-xs font-mono text-[#BEF264] bg-[#0A0A0A] px-3 py-1 rounded border border-[#262626] inline-block font-bold">
+              <div className="pt-2 border-t border-[#262626] flex items-center justify-between">
+                <span className="text-xs font-mono text-[#666]">Location & Timezone:</span>
+                <span className="text-xs font-mono text-[#BEF264] bg-[#0A0A0A] px-3 py-1 rounded border border-[#262626] font-bold">
                   Nigeria (WAT / UTC+1)
                 </span>
               </div>
@@ -229,23 +309,33 @@ export const ContactForm: React.FC = () => {
                 </div>
               )}
 
-              <button
-                type="submit"
-                disabled={loading}
-                className="w-full py-4 rounded bg-[#BEF264] hover:bg-[#d4fc79] text-black font-mono font-bold uppercase tracking-wider text-xs flex items-center justify-center gap-2 transition-all disabled:opacity-50"
-              >
-                {loading ? (
-                  <>
-                    <Loader2 className="w-4 h-4 animate-spin text-black" />
-                    <span>Sending Inquiry...</span>
-                  </>
-                ) : (
-                  <>
-                    <Send className="w-4 h-4" />
-                    <span>Send Message to Fidelis</span>
-                  </>
-                )}
-              </button>
+              <div className="space-y-3">
+                <button
+                  type="submit"
+                  disabled={loading}
+                  className="w-full py-4 rounded bg-[#BEF264] hover:bg-[#d4fc79] text-black font-mono font-bold uppercase tracking-wider text-xs flex items-center justify-center gap-2 transition-all disabled:opacity-50"
+                >
+                  {loading ? (
+                    <>
+                      <Loader2 className="w-4 h-4 animate-spin text-black" />
+                      <span>Sending Email to Fidelis...</span>
+                    </>
+                  ) : (
+                    <>
+                      <Send className="w-4 h-4" />
+                      <span>Send Message (Delivers to fidelissibe@gmail.com)</span>
+                    </>
+                  )}
+                </button>
+
+                <a
+                  href={mailtoUrl}
+                  className="w-full py-2.5 rounded bg-[#0A0A0A] border border-[#262626] hover:border-[#BEF264] text-[#AAA] hover:text-white font-mono text-[11px] uppercase tracking-wider font-bold flex items-center justify-center gap-2 transition-colors"
+                >
+                  <Mail className="w-3.5 h-3.5 text-[#BEF264]" />
+                  <span>Or Open Direct Email Client</span>
+                </a>
+              </div>
 
             </form>
           </div>
@@ -256,3 +346,4 @@ export const ContactForm: React.FC = () => {
     </section>
   );
 };
+

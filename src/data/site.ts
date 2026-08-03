@@ -6,6 +6,9 @@ export interface SiteConfig {
   secondaryBio: string;
   location: string;
   email: string;
+  companyEmails: string[];
+  phone: string;
+  whatsapp: string;
   githubUrl: string;
   linkedinUrl: string;
   twitterUrl: string;
@@ -31,7 +34,10 @@ export const siteData: SiteConfig = {
   shortBio: "I design and build modern web applications, software products, and digital experiences that solve real-world problems.",
   secondaryBio: "From student platforms and media products to AI-powered applications and business systems, I turn ideas into functional digital products.",
   location: "Nigeria",
-  email: "fidetvonline@gmail.com",
+  email: "fidelissibe@gmail.com",
+  companyEmails: ["fidetvonline@gmail.com", "fidetvmedia@gmail.com"],
+  phone: "08124323608",
+  whatsapp: "08108889805",
   githubUrl: "https://github.com/fidetvonline-gif",
   linkedinUrl: "https://linkedin.com/in/fidelis-sibe",
   twitterUrl: "https://x.com/fidetvonline",

@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowUp, Github, Linkedin, Twitter, Mail, Heart } from 'lucide-react';
+import { ArrowUp, Github, Linkedin, Twitter, Mail, Phone, MessageCircle } from 'lucide-react';
 import { siteData } from '../data/site';
 
 export const Footer: React.FC = () => {
@@ -38,6 +38,24 @@ export const Footer: React.FC = () => {
 
           {/* Social Icons & Back to top */}
           <div className="flex items-center gap-3">
+            <a
+              href="tel:08124323608"
+              className="p-2 rounded bg-[#0F0F0F] border border-[#262626] text-[#AAA] hover:text-[#BEF264] hover:border-[#BEF264] transition-colors"
+              aria-label="Call 08124323608"
+              title="Call 08124323608"
+            >
+              <Phone className="w-4 h-4" />
+            </a>
+            <a
+              href="https://wa.me/2348108889805"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="p-2 rounded bg-[#0F0F0F] border border-[#262626] text-[#BEF264] hover:text-white hover:border-[#BEF264] transition-colors font-bold"
+              aria-label="WhatsApp 08108889805"
+              title="WhatsApp 08108889805"
+            >
+              <MessageCircle className="w-4 h-4" />
+            </a>
             <a
               href={siteData.githubUrl}
               target="_blank"
