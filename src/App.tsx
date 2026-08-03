@@ -54,9 +54,6 @@ export default function App() {
     const el = document.getElementById('interactive-demos');
     if (el) {
       el.scrollIntoView({ behavior: 'smooth' });
-    } else {
-      const demos = document.querySelector('section:has(h3:contains("Interactive"))');
-      demos?.scrollIntoView({ behavior: 'smooth' });
     }
   };
 
